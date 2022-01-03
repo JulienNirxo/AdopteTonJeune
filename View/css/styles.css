@@ -11736,3 +11736,7 @@ nav li:hover{
   cursor:pointer;
   text-decoration: underline;
 }
+
+.size-logo{
+  width:50px;
+}
