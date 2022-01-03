@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="View/css/styles.css" rel="stylesheet" />
+        <link href="View/css/connexion.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -26,8 +26,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="btn btn-primary" href="inscription.php">Inscription</a></li>
-                        <li class="nav-item"><a class="btn btn-primary" href="connexion.php">Connexion</a></li>
+                        <li class="nav-item"><a class="btn btn-primary" href="/">Accueil</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,20 +36,17 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <h1>Un vieux, un jeune</h1>
-                        <select class="color-selector" >
-                            <option value="test">test1</option>
-                            <option value="test">test2</option>
-                        </select>
-                        <select class="color-selector" >
-                            <option value="test">test1</option>
-                            <option value="test">test2</option>
-                        </select>
-                        <select class="color-selector" >
-                            <option value="test">test1</option>
-                            <option value="test">test2</option>
-                        </select>
-                        <a class="btn btn-primary" href="#about">Rechercher</a>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="label-white">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="label-white">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div><br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
