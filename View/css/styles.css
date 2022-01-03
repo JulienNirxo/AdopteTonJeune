@@ -11701,5 +11701,8 @@ body {
 
 
 .color-selector{
+  height: 55px;
+  width:100px;
+  color:white;
   background-color: #64a19d;
 }
