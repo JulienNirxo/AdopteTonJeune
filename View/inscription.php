@@ -14,6 +14,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="View/css/inscription.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="View/js/inscription.js"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -32,45 +34,60 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+        <header class="masthead background-img">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="label-white">Mot de passe</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+                                <input type="password" class="form-control" name="mdp" id="mdp" placeholder="Mot de passe">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="label-white">Saisir le mot de passe à nouveau</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+                                <input type="password" class="form-control" name="mdp2" id="mdp2" placeholder="Mot de passe">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Nom</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom">
+                                <input type="text" class="form-control" name="nom" id="nom" aria-describedby="emailHelp" placeholder="Nom">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Prenom</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Prenom">
+                                <input type="text" class="form-control" name="prenom" id="prenom" aria-describedby="emailHelp" placeholder="Prenom">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Age</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Age">
+                                <input type="text" class="form-control" name="age" id="age" aria-describedby="emailHelp" placeholder="Age">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="label-white">Ville</label>
+                                <input type="text" class="form-control" name="ville" id="ville" aria-describedby="emailHelp" placeholder="Ville">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Adresse</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse">
+                                <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="emailHelp" placeholder="Adresse">
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="label-white">Code postale</label>
+                                <input type="text" class="form-control" name="cp" id="cp" aria-describedby="emailHelp" placeholder="Code postale">
+                            </div><br>
+                            <p class="label-white">Vous êtes :</p>
+
+                            <div>
+                                <input type="radio" id="vieux" name="type" value="vieux" checked>
+                                <label class="label-white" for="huey">Un vieux</label>
+                                <input type="radio" id="jeune" name="type" value="jeune">
+                                <label class="label-white" for="dewey">Un jeune</label>
+                            </div>
+
 
 
 
                             <br>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                            <button class="btn btn-primary" id="btnInscription"">Inscription</button>
 
                     </div>
                 </div>

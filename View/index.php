@@ -51,7 +51,7 @@
                         </select>
                         <select class="selectpicker" multiple>
                         </select>
-                        <a class="btn btn-primary" href="#about">Rechercher</a>
+                        <a class="btn btn-primary">Rechercher</a>
                     </div>
                 </div>
             </div>
