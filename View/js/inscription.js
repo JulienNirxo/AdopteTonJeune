@@ -30,11 +30,13 @@ function inscriptionUsers() {
     $.ajax({
         type: "POST",
         url: "functions.php",
-        dataType:"json",
         data:{inscription: inscription, email: email, mdp: mdp, mdp2: mdp2, nom: nom, prenom: prenom, age: age, ville: ville, adresse: adresse, cp : cp, type: type},
-        success: function (responseText) {
-            //let responseJson = JSON.parse(responseText);
-            //initialisation du tableau
+        success: function () {
+            if(type === "vieux"){
+                document.location.href="index.php";
+            }else if(type === "jeune"){
+
+            }
         }, error: function () {}
     })
 }

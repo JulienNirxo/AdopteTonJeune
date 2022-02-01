@@ -23,28 +23,28 @@ class DAOcompte
     }
 
     public function adduser($nom, $prenom, $age, $adresse, $ville, $cp, $mail, $password, $type){
-        echo $nom." + ".$prenom." + ".$age." + ".$adresse." + ".$ville." + ".$cp." + ".$mail." +  ".$password." + ".$type;
         if($type == 'jeune'){
             $requete = "INSERT INTO jeune(NOM, PRENOM, AGE, ADRESSE, VILLE, CP, MAIL, PASSWORD) 
                     VALUES(?,?,?,?,?,?,?,?);";
             $req = $this->Bdd->prepare($requete);
             $req-> execute(array($nom, $prenom, $age, $adresse, 1, $cp, $mail, $password));
-            echo "un jeune";
             $data = $req->fetch();
+            $_SESSION['idJeune'] = $this->Bdd->lastInsertId();
+
         }if($type == "vieux"){
-            $requete = "INSERT INTO retraite(ADRESSE, CP) 
+            $requete = "INSERT INTO logement(ADRESSE, CP) 
                     VALUES(?,?);";
             $req = $this->Bdd->prepare($requete);
             $req-> execute(array($adresse, $cp));
-            $data = $req->fetch();
-            $req2 = "SELECT LAST_INSERT_ID()";
+            $req2 = $this->Bdd->lastInsertId();
 
             $requete = "INSERT INTO retraite(NOM, PRENOM, AGE, ADRESSE, VILLE, CP, MAIL, PASSWORD, ID_LOGEMENT) 
                     VALUES(?,?,?,?,?,?,?,?,?);";
             $req = $this->Bdd->prepare($requete);
             $req-> execute(array($nom, $prenom, $age, $adresse, 1, $cp, $mail, $password, $req2));
-            echo "un vieux";
             $data = $req->fetch();
+
+            $_SESSION['idVieux'] = $this->Bdd->lastInsertId();
         }
 
     }
