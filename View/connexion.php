@@ -36,16 +36,22 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <form>
+                        <form method="post" action="connexion.php">
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="label-white">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Password">
                             </div><br>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div>
+                                <input type="radio" id="vieux" name="type" value="vieux" checked>
+                                <label class="label-white" for="huey">Un vieux</label>
+                                <input type="radio" id="jeune" name="type" value="jeune">
+                                <label class="label-white" for="dewey">Un jeune</label>
+                            </div><br>
+                            <button onclick="connexionUsers();" class="btn btn-primary" name ="connexion">Connexion</button>
                         </form>
                     </div>
                 </div>
@@ -57,10 +63,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="View/js/scripts.js"></script>
+        <script src="js/connexion.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </body>
 </html>

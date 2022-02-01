@@ -50,7 +50,7 @@
                             <option value="test">test1</option>
                             <option value="test">test2</option>
                         </select>
-                        <a class="btn btn-primary" href="#about">Rechercher</a>
+                        <a class="btn btn-primary">Rechercher</a>
                     </div>
                 </div>
             </div>
