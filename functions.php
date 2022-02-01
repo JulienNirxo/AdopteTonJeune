@@ -1,7 +1,6 @@
 <?php
 require_once('Model/DAOcompte.php');
 $connect = new DAOcompte();
-
 if(isset($_POST['inscription'])) {
     if($_POST['mdp2'] == $_POST['mdp']){
         $_POST['mdp'] = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
