@@ -24,26 +24,16 @@ function inscriptionUsers() {
         }
     }
 
-    alert(email);
-    alert(mdp);
-    alert(mdp2);
-    alert(nom);
-    alert(prenom);
-    alert(age);
-    alert(ville);
-    alert(adresse);
-    alert(cp);
-    alert(type);
+    var inscription = 1;
 
 
     $.ajax({
         type: "POST",
         url: "functions.php",
         dataType:"json",
-        data:{email: email, mdp: mdp, mdp2: mdp2, nom: nom, prenom: prenom, age: age, ville: ville, adresse: adresse, cp : cp, type: type},
+        data:{inscription: inscription, email: email, mdp: mdp, mdp2: mdp2, nom: nom, prenom: prenom, age: age, ville: ville, adresse: adresse, cp : cp, type: type},
         success: function (responseText) {
-            let responseJson = JSON.parse(responseText);
-            alert(responseJson);
+            //let responseJson = JSON.parse(responseText);
             //initialisation du tableau
         }, error: function () {}
     })

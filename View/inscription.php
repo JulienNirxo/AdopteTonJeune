@@ -38,7 +38,6 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Email</label>
                                 <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -89,7 +88,6 @@
 
                             <br>
                             <button class="btn btn-primary" id="btnInscription"">Inscription</button>
-                        </form>
 
                     </div>
                 </div>

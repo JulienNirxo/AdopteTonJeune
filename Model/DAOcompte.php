@@ -23,13 +23,12 @@ class DAOcompte
     }
 
     public function adduser($nom, $prenom, $age, $adresse, $ville, $cp, $mail, $password, $type){
-        echo $nom;
-        /*
+        echo $nom." + ".$prenom." + ".$age." + ".$adresse." + ".$ville." + ".$cp." + ".$mail." +  ".$password." + ".$type;
         if($type == 'jeune'){
             $requete = "INSERT INTO jeune(NOM, PRENOM, AGE, ADRESSE, VILLE, CP, MAIL, PASSWORD) 
                     VALUES(?,?,?,?,?,?,?,?);";
             $req = $this->Bdd->prepare($requete);
-            $req-> execute(array($nom, $prenom, $age, $adresse, $ville, $cp, $mail, $password));
+            $req-> execute(array($nom, $prenom, $age, $adresse, 1, $cp, $mail, $password));
             echo "un jeune";
             $data = $req->fetch();
         }if($type == "vieux"){
@@ -43,10 +42,10 @@ class DAOcompte
             $requete = "INSERT INTO retraite(NOM, PRENOM, AGE, ADRESSE, VILLE, CP, MAIL, PASSWORD, ID_LOGEMENT) 
                     VALUES(?,?,?,?,?,?,?,?,?);";
             $req = $this->Bdd->prepare($requete);
-            $req-> execute(array($nom, $prenom, $age, $adresse, $ville, $cp, $mail, $password, $req2));
+            $req-> execute(array($nom, $prenom, $age, $adresse, 1, $cp, $mail, $password, $req2));
             echo "un vieux";
             $data = $req->fetch();
-        }*/
+        }
 
     }
 
