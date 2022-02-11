@@ -1,20 +1,25 @@
 $(function() {
-    inscriptionUsers();
+    SelectDepart();
 })
 
-function SelectCitie(){
-    var cities = 1;
+function SelectDepart(){
+    var depart = 1;
     $.ajax({
         type: "POST",
         url: "functions.php",
         dataType:"json",
-        data:{cities:cities},
+        data:{depart:depart},
         success: function (responseText) {
-            let responseJson = JSON.parse(responseText);
-            responseJson.forEach((MonTableau) =>{
-                document.getElementById('MonSelect').innerHTML += "<option value='"+MonTableau['key']+"'>"+MonTableau['MaVille']+"</option>"
+            console.log(responseText);
+            var string1 = JSON.stringify(responseText);
+            let responseJson = JSON.parse(string1);
+            responseJson.forEach((tab) =>{
+                setTimeout(() => {document.getElementById('departement-select').innerHTML += "<option value='" + tab[1]  + "'>"+ tab[2] + "</option>";}, 100);
+
             })
             //initialisation du tableau
         }, error: function () {}
     }) 
 }
+
+

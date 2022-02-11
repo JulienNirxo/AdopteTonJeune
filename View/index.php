@@ -15,10 +15,11 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href="View/css/styles.css" rel="stylesheet" />
+        <script src="View/js/index.js"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -43,13 +44,19 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1>Un vieux, un jeune</h1>
-                        <select class="selectpicker" data-live-search="true">
-                            
-                        </select>
-                        <select class="selectpicker" data-live-search="true">
+                        <select id="departement-select" class="btn dropdown-toggle btn-light bs-placeholder">
                             
                         </select>
                         <select class="selectpicker" multiple>
+                            <option>Cuisine</option>
+                            <option>Ménage</option>
+                            <option>Animaux</option>
+                            <option>Jardinage</option>
+                            <option>Courses</option>
+                            <option>Jeux de sociétés</option>
+                            <option>Bricolage</option>
+                            <option>Livraison de repas</option>
+                            <option>Accompagnement véhiculé</option>
                         </select>
                         <a class="btn btn-primary">Rechercher</a>
                     </div>

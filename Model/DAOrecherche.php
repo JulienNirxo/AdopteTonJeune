@@ -22,7 +22,14 @@ class DAOrecherche
         }
     }
 
-    public function
+    public function searchDepart(){
+        $requete = "SELECT * FROM departement";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute();
+        $data = $req->fetchAll();
+
+        return $data;
+    }
 
 
 
