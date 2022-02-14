@@ -63,17 +63,20 @@
                                 <input type="text" class="form-control" name="age" id="age" aria-describedby="emailHelp" placeholder="Age">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1" class="label-white">Département</label>
+                                <select id="departement-select" class="form-select" onchange="SelectVille();">
+
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Ville</label>
-                                <input type="text" class="form-control" name="ville" id="ville" aria-describedby="emailHelp" placeholder="Ville">
+                                <select id="ville-select" class="form-select">
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="label-white">Adresse</label>
                                 <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="emailHelp" placeholder="Adresse">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1" class="label-white">Code postale</label>
-                                <input type="text" class="form-control" name="cp" id="cp" aria-describedby="emailHelp" placeholder="Code postale">
-                            </div><br>
                             <p class="label-white">Vous êtes :</p>
 
                             <div>
@@ -87,7 +90,7 @@
 
 
                             <br>
-                            <button class="btn btn-primary" id="btnInscription"">Inscription</button>
+                            <button class="btn btn-primary" id="btnInscription" onclick="inscriptionUsers();">Inscription</button>
 
                     </div>
                 </div>

@@ -7,14 +7,19 @@
         <meta name="author" content="" />
         <title>Adopte Ton Jeune</title>
         <link rel="icon" type="image/x-icon" href="View/assets/favicon.ico" />
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="View/css/connexion.css" rel="stylesheet" />
-        <script src="View/js/connexion.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="View/css/styles.css" rel="stylesheet" />
+        <script src="View/js/index.js"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -27,7 +32,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="btn btn-primary" href="/">Accueil</a></li>
+                        <li class="nav-item"><a class="btn btn-primary" href="index.php">Accueil</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,38 +42,32 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <form method="post" action="connexion.php">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1" class="label-white">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <h1>Bienvenue !</h1>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4><a href="moncv.php">Accédez à mon cv</a></h4>
+                                    <h4>Accédez à mes avis</h4>
+                                    <h4>Accédez à mes demandes</h4>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1" class="label-white">Password</label>
-                                <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Password">
-                            </div><br>
-                            <div>
-                                <input type="radio" id="vieux" name="type" value="vieux" checked>
-                                <label class="label-white" for="huey">Un vieux</label>
-                                <input type="radio" id="jeune" name="type" value="jeune">
-                                <label class="label-white" for="dewey">Un jeune</label>
-                            </div><br>
-                            <button type="submit" class="btn btn-primary" name="btnconnexion" id="btnconnexion">Connexion</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; AdopteTonJeune.fr 2021</div></footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="View/js/scripts.js"></script>
+        
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
     </body>
 </html>

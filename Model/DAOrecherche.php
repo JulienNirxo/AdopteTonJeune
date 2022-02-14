@@ -31,6 +31,15 @@ class DAOrecherche
         return $data;
     }
 
+    public function searchCity(){
+        $requete = "SELECT * FROM cities WHERE department_code = ?";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute(array($_POST['depart']));
+        $data = $req->fetchAll();
+
+        return $data;
+    }
+
 
 
 }

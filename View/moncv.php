@@ -19,7 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href="View/css/styles.css" rel="stylesheet" />
-        <script src="View/js/index.js"></script>
+        <script src="View/js/moncv.js"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -31,20 +31,10 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <?php if(isset($_SESSION['idJeune'])){ ?>
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="btn btn-primary" href="homejeune.php">Mon Compte</a></li>
-                        </ul>
-                    <?php } else if(isset($_SESSION['idVieux'])){ ?>
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="btn btn-primary" href="index.php">Mon Compte</a></li>
-                        </ul>
-                    <?php }else{ ?>
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="btn btn-primary" href="inscription.php">Inscription</a></li>
-                            <li class="nav-item"><a class="btn btn-primary" href="connexion.php">Connexion</a></li>
-                        </ul>
-                    <?php } ?>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="btn btn-primary" href="index.php">Accueil</a></li>
+                        <li class="nav-item"><a class="btn btn-primary" href="homejeune.php">Mon Compte</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -53,23 +43,36 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <h1>Un vieux, un jeune</h1>
-                        <select id="departement-select" class="btn dropdown-toggle btn-light bs-placeholder">
-                            
-                        </select>
-                        <select class="selectpicker" multiple>
-                            <option>Cuisine</option>
-                            <option>Ménage</option>
-                            <option>Animaux</option>
-                            <option>Jardinage</option>
-                            <option>Courses</option>
-                            <option>Jeux de sociétés</option>
-                            <option>Bricolage</option>
-                            <option>Livraison de repas</option>
-                            <option>Accompagnement véhiculé</option>
-                        </select>
-                        <a class="btn btn-primary">Rechercher</a>
+                        <h1>Mon CV</h1>
+                            <div class="card">
+                                <div class="card-body">
+                                    <input type="text" class="form-control" id="Mail" name="Mail" placeholder="Mail" value="<?= $data['MAIL'] ?>">
+                                    <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Nom" value="<?= $data['NOM'] ?>">
+                                    <input type="text" class="form-control" id="Prenom" name="Prenom" placeholder="Prenom" value="<?= $data['PRENOM'] ?>">
+                                    <input type="text" class="form-control" id="Age" name="Age" placeholder="Age" value="<?= $data['AGE'] ?>">
+                                    <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Adresse" value="<?= $data['ADRESSE'] ?>">
+                                    <select id="departement-select" class="form-select" onchange="SelectVille();">
+                                        <option value="<?= $data['department_code'] ?>"><?= $data['departementnom'] ?> (actuellement)</option>
+                                    </select>
+                                    <select id="ville-select" class="form-select">
+                                        <option value="<?= $data['name'] ?>"><?= $data['name'] ?> (actuellement)</option>
+                                    </select>
+                                    <div class="text-left">
+                                        <input type="checkbox" id="Cuisine" name="competence" value="1"><label for="scales">Cuisine</label><br>
+                                        <input type="checkbox" id="Menage" name="competence" value="2"><label for="scales">Ménage</label><br>
+                                        <input type="checkbox" id="Animaux" name="competence" value="5"><label for="scales">Animaux</label><br>
+                                        <input type="checkbox" id="Jardinage" name="competence" value="7"><label for="scales">Jardinage</label><br>
+                                        <input type="checkbox" id="Courses" name="competence" value="8"><label for="scales">Courses</label><br>
+                                        <input type="checkbox" id="Jeuxdesociete" name="competence" value="9"><label for="scales">Jeux de sociétés</label><br>
+                                        <input type="checkbox" id="Bricolage" name="competence" value="10"><label for="scales">Bricolage</label><br>
+                                        <input type="checkbox" id="Livraisonderepas" name="competence" value="11"><label for="scales">Livraison de repas</label><br>
+                                        <input type="checkbox" id="Accompagnementvehicule" name="competence" value="12"><label for="scales">Accompagnement véhiculé</label>
+                                    </div>
 
+                                    <button class="btn btn-primary" onclick="sendModif();">Enregistrer</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

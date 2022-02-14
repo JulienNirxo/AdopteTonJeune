@@ -1,4 +1,4 @@
 <?php
 session_start();
 require_once('Model/DAOcompte.php');
-include("View/index.php");
+include("View/homejeune.php");
