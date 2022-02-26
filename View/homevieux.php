@@ -19,7 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href="View/css/styles.css" rel="stylesheet" />
-        <script src="View/js/moncv.js"></script>
+        <script src="View/js/homevieux.js"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -33,7 +33,6 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="btn btn-primary" href="index.php">Accueil</a></li>
-                        <li class="nav-item"><a class="btn btn-primary" href="homejeune.php">Mon Compte</a></li>
                         <li class="nav-item"><a class="btn btn-primary" href="sessiondestroy.php">Déconnexion</a></li>
                     </ul>
                 </div>
@@ -44,35 +43,22 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <h1>Mon CV</h1>
-                            <div class="card">
-                                <div class="card-body">
-                                    <input type="text" class="form-control" id="Mail" name="Mail" placeholder="Mail" value="<?= $data['MAIL'] ?>">
-                                    <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Nom" value="<?= $data['NOM'] ?>">
-                                    <input type="text" class="form-control" id="Prenom" name="Prenom" placeholder="Prenom" value="<?= $data['PRENOM'] ?>">
-                                    <input type="text" class="form-control" id="Age" name="Age" placeholder="Age" value="<?= $data['AGE'] ?>">
-                                    <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Adresse" value="<?= $data['ADRESSE'] ?>">
-                                    <select id="departement-select" class="form-select" onchange="SelectVille();">
-                                        <option value="<?= $data['department_code'] ?>"><?= $data['departementnom'] ?> (actuellement)</option>
-                                    </select>
-                                    <select id="ville-select" class="form-select">
-                                        <option value="<?= $data['name'] ?>"><?= $data['name'] ?> (actuellement)</option>
-                                    </select>
-                                    <div class="text-left">
-                                        <input type="checkbox" id="1" name="competence" value="1"><label for="scales">Cuisine</label><br>
-                                        <input type="checkbox" id="2" name="competence" value="2"><label for="scales">Ménage</label><br>
-                                        <input type="checkbox" id="5" name="competence" value="5"><label for="scales">Animaux</label><br>
-                                        <input type="checkbox" id="7" name="competence" value="7"><label for="scales">Jardinage</label><br>
-                                        <input type="checkbox" id="8" name="competence" value="8"><label for="scales">Courses</label><br>
-                                        <input type="checkbox" id="9" name="competence" value="9"><label for="scales">Jeux de sociétés</label><br>
-                                        <input type="checkbox" id="10" name="competence" value="10"><label for="scales">Bricolage</label><br>
-                                        <input type="checkbox" id="11" name="competence" value="11"><label for="scales">Livraison de repas</label><br>
-                                        <input type="checkbox" id="12" name="competence" value="12"><label for="scales">Accompagnement véhiculé</label>
-                                    </div>
-
-                                    <button class="btn btn-primary" onclick="sendModif();">Enregistrer</button>
+                        <h1>Mes demandes</h1>
+                            <div class="card" id="enattente">
+                                <div class="card-body" id="enattente">
+                                    <p>En attentes</p>
                                 </div>
+                            </div><br>
+                        <div class="card" id="enattente">
+                            <div class="card-body" id="valider">
+                                <p>Valider</p>
                             </div>
+                        </div><br>
+                        <div class="card" id="enattente">
+                            <div class="card-body" id="refuser">
+                                <p>Refuser</p>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

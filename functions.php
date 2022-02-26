@@ -32,4 +32,38 @@ else if(isset($_POST['depart'])){
 /*********************MON CV******************************/
 if(isset($_POST['lesmodifs'])){
     $compte->sendModifCV();
+    print true;
 }
+
+if(isset($_POST['checkCompetence'])){
+    $data['check'] = $compte->getCheckCompetence();
+    print json_encode($data['check']);
+}
+
+/***************MES DEMANDES*******************/
+if(isset($_POST['mesDemandes'])){
+    $data['mesDemandes'] = $compte->getDemande();
+    print json_encode($data['mesDemandes']);
+}
+
+if(isset($_POST['mesDemandesValide'])){
+    $compte->DemandeValide();
+    print 1;
+}
+
+if(isset($_POST['mesDemandesInvalide'])){
+    $compte->DemandesInvalide();
+    print 1;
+}
+
+if(isset($_POST['mesDemandesVieux'])){
+    $data['mesDemandesVieux'] = $recherche->getDemandeVieux();
+    print json_encode($data['mesDemandesVieux']);
+}
+
+/*********************RECHERCHE****************/
+if(isset($_POST['contrat'])){
+    $data['contrat'] = $recherche->addContrat();
+    print json_encode($data['contrat']);
+}
+

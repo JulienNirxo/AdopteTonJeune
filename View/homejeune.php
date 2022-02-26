@@ -33,6 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="btn btn-primary" href="index.php">Accueil</a></li>
+                        <li class="nav-item"><a class="btn btn-primary" href="sessiondestroy.php">Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +48,7 @@
                                 <div class="card-body">
                                     <h4><a href="moncv.php">Accédez à mon cv</a></h4>
                                     <h4>Accédez à mes avis</h4>
-                                    <h4>Accédez à mes demandes</h4>
+                                    <h4><a href="mesdemandes.php">Accédez à mes demandes</a></h4>
                                 </div>
                             </div>
                         </div>

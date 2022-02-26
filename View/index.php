@@ -34,10 +34,12 @@
                     <?php if(isset($_SESSION['idJeune'])){ ?>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="btn btn-primary" href="homejeune.php">Mon Compte</a></li>
+                            <li class="nav-item"><a class="btn btn-primary" href="sessiondestroy.php">Déconnexion</a></li>
                         </ul>
                     <?php } else if(isset($_SESSION['idVieux'])){ ?>
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="btn btn-primary" href="index.php">Mon Compte</a></li>
+                            <li class="nav-item"><a class="btn btn-primary" href="homevieux.php">Mes demandes</a></li>
+                            <li class="nav-item"><a class="btn btn-primary" href="sessiondestroy.php">Déconnexion</a></li>
                         </ul>
                     <?php }else{ ?>
                         <ul class="navbar-nav ms-auto">
@@ -54,21 +56,12 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1>Un vieux, un jeune</h1>
-                        <select id="departement-select" class="btn dropdown-toggle btn-light bs-placeholder">
-                            
-                        </select>
-                        <select class="selectpicker" multiple>
-                            <option>Cuisine</option>
-                            <option>Ménage</option>
-                            <option>Animaux</option>
-                            <option>Jardinage</option>
-                            <option>Courses</option>
-                            <option>Jeux de sociétés</option>
-                            <option>Bricolage</option>
-                            <option>Livraison de repas</option>
-                            <option>Accompagnement véhiculé</option>
-                        </select>
-                        <a class="btn btn-primary">Rechercher</a>
+                        <form method="post" action="recherchejeune.php">
+                            <select id="departement-select" class="btn dropdown-toggle btn-light bs-placeholder" name="departement-select">
+
+                            </select>
+                            <button type="submit" class="btn btn-primary" id="search" name="search">Rechercher</button>
+                        </form>
 
                     </div>
                 </div>

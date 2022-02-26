@@ -45,16 +45,16 @@ class DAOcompte
             $_SESSION['idJeune'] = $this->Bdd->lastInsertId();
 
         }if($type == "vieux"){
-            $requete = "INSERT INTO logement(ADRESSE, CP) 
+            $requete = "INSERT INTO logement(VILLE,ADRESSE) 
                     VALUES(?,?);";
             $req = $this->Bdd->prepare($requete);
-            $req-> execute(array($adresse, $ville));
+            $req-> execute(array($ville, $adresse));
             $req2 = $this->Bdd->lastInsertId();
 
-            $requete = "INSERT INTO retraite(NOM, PRENOM, AGE, ADRESSE, VILLE, MAIL, PASSWORD, ID_LOGEMENT) 
-                    VALUES(?,?,?,?,?,?,?,?);";
+            $requete = "INSERT INTO retraite(NOM, PRENOM, AGE, MAIL, PASSWORD, ID_LOGEMENT) 
+                    VALUES(?,?,?,?,?,?);";
             $req = $this->Bdd->prepare($requete);
-            $req-> execute(array($nom, $prenom, $age, $adresse, $ville, $mail, $password, $req2));
+            $req-> execute(array($nom, $prenom, $age, $mail, $password, $req2));
             $data = $req->fetch();
 
             $_SESSION['idVieux'] = $this->Bdd->lastInsertId();
@@ -104,7 +104,7 @@ class DAOcompte
             $mdphacher = password_verify($password, $data['PASSWORD']);
 
             if($mdphacher == $password && $mail == $data['MAIL']){
-                $requete = "SELECT NOM, PRENOM, AGE, ADRESSE, VILLE, MAIL, ID_LOGEMENT FROM retraite
+                $requete = "SELECT * FROM retraite
                     WHERE MAIL = ?";
                 $req = $this->Bdd->prepare($requete);
                 $req-> execute(array($mail));
@@ -136,7 +136,7 @@ class DAOcompte
         $Mail = $_POST['Mail'];
         $Nom = $_POST['Nom'];
         $Prenom = $_POST['Prenom'];
-        $Age = $_POST['Mail'];
+        $Age = $_POST['Age'];
         $Adresse = $_POST['Adresse'];
         $departementselect = $_POST['departementselect'];
         $villeselect = $_POST['villeselect'];
@@ -167,18 +167,248 @@ class DAOcompte
         $req = $this->Bdd->prepare($requete);
         $req-> execute(array($Age, $_SESSION['idJeune']));
 
+
         $requete = "UPDATE jeune SET ADRESSE = ? WHERE ID = ?";
         $req = $this->Bdd->prepare($requete);
         $req-> execute(array($Adresse, $_SESSION['idJeune']));
 
-        $stractuellement = "actuellement";
-        if(strpos($departementselect, $stractuellement) !== false){
+        if(ctype_digit($villeselect)){
             $requete = "UPDATE jeune SET VILLE = ? WHERE ID = ?";
             $req = $this->Bdd->prepare($requete);
-            $req-> execute(array($Adresse, $_SESSION['idJeune']));
+            $req-> execute(array($villeselect, $_SESSION['idJeune']));
+        }
+
+        //cuisine
+        if($Cuisine == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(1, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(1, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(1, $_SESSION['idJeune']));
+        }
+
+        //Menage
+        if($Menage == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(2, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(2, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(2, $_SESSION['idJeune']));
+        }
+
+        //Animaux
+        if($Animaux == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(5, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(5, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(5, $_SESSION['idJeune']));
+        }
+
+        //Jardinage
+        if($Jardinage == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(7, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(7, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(7, $_SESSION['idJeune']));
+        }
+
+        //Courses
+        if($Courses == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(8, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(8, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(8, $_SESSION['idJeune']));
+        }
+
+        //Jeux de sociétés
+        if($Jeuxdesociete == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(9, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(9, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(9, $_SESSION['idJeune']));
+        }
+
+        //Bricolage
+        if($Bricolage == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(10, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(10, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(10, $_SESSION['idJeune']));
+        }
+
+        //Livraison de repas
+        if($Livraisonderepas == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(11, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(11, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(11, $_SESSION['idJeune']));
+        }
+
+        //Accompagnement vehicule
+        if($Accompagnementvehicule == "true"){
+            $requete = "SELECT ID_COMPETENCE
+                        FROM CV
+                        WHERE ID_COMPETENCE = ?
+                        AND ID_JEUNE = ?";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(12, $_SESSION['idJeune']));
+            $data = $req->fetch();
+
+            if($data == null) {
+                $requete = "INSERT INTO CV(ID_COMPETENCE,ID_JEUNE) 
+                    VALUES(?,?);";
+                $req = $this->Bdd->prepare($requete);
+                $req->execute(array(12, $_SESSION['idJeune']));
+            }
+        }else{
+            $requete = "DELETE FROM CV WHERE ID_COMPETENCE = ? AND ID_JEUNE = ? ";
+            $req = $this->Bdd->prepare($requete);
+            $req-> execute(array(12, $_SESSION['idJeune']));
         }
     }
 
+    public function getCheckCompetence(){
+        $requete = "SELECT ID_COMPETENCE
+                    FROM CV
+                    WHERE ID_JEUNE = ?";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute(array($_SESSION['idJeune']));
+        return $req->fetchAll();
+    }
 
+    public function getDemande(){
+        $requete = "SELECT retraite.ID, NOM, PRENOM, AGE, name, MAIL, logement.ADRESSE, zip_code, ETAT
+                    FROM Contrat, retraite, logement, cities
+                    WHERE Contrat.ID_RETRAITE = retraite.ID
+                    AND retraite.ID_LOGEMENT = logement.ID
+                    AND logement.VILLE = cities.id
+                    AND ETAT = 'En attente'
+                    AND ID_JEUNE = ?";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute(array($_SESSION['idJeune']));
+        return $req->fetchAll();
+    }
+
+    public function DemandeValide(){
+        $requete = "UPDATE Contrat SET ETAT = 'Valider' WHERE ID_JEUNE = ?";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute(array($_SESSION['idJeune']));
+    }
+
+    public function DemandesInvalide(){
+        $requete = "UPDATE Contrat SET ETAT = 'Refuser' WHERE ID_JEUNE = ?";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute(array($_SESSION['idJeune']));
+    }
 
 }
