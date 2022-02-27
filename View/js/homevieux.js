@@ -17,18 +17,20 @@ function getDemande(){
                 if(tab['ETAT'] === "En attente"){
                     document.getElementById("enattente").innerHTML += "<div class='card text-left' style='background-color:lightgrey;'>" +
                         tab['NOM']+" "+tab['PRENOM']+", "+tab['AGE']+"ans <br> " +
-                        "</div>";
+                        "</div><br>";
                 }else if(tab['ETAT'] === "Valider"){
                     document.getElementById("valider").innerHTML += "<div class='card text-left' style='background-color:lightgrey;'>" +
-                            "<form method='post' action='connexion.php'>" +
+                            "<form method='post' action='notejeune.php'>" +
                                 tab['NOM']+" "+tab['PRENOM']+", "+tab['AGE']+"ans <br> " +
-                                "Veuillez le contacter par mail : "+ tab['MAIL'] +
+                                "<input type='hidden' name='idjeune' id='idjeune' value='"+tab['ID']+"'>" +
+                                "Veuillez le contacter par mail : "+ tab['MAIL'] + "<br>"+
+                                "<button type='submit'>Noter le jeune</button>" +
                             "</form>" +
-                        "</div>";
+                        "</div><br>";
                 }else{
                     document.getElementById("refuser").innerHTML += "<div class='card text-left' style='background-color:lightgrey;'>" +
                         tab['NOM']+" "+tab['PRENOM']+", "+tab['AGE']+"ans <br> " +
-                        "</div>";
+                        "</div><br>";
                 }
             })
         }, error: function () {}

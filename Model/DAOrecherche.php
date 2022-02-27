@@ -77,9 +77,9 @@ class DAOrecherche
     }
 
     public function addContrat(){
-        $requete = "SELECT * FROM Contrat WHERE ID_JEUNE = ?";
+        $requete = "SELECT * FROM Contrat WHERE ID_RETRAITE = ? AND ID_JEUNE = ?";
         $req = $this->Bdd->prepare($requete);
-        $req-> execute(array($_POST['id']));
+        $req-> execute(array($_SESSION['idVieux'], $_POST['id']));
         $data = $req->fetchAll();
 
         if($data == null){
@@ -94,7 +94,7 @@ class DAOrecherche
     }
 
     public function getDemandeVieux(){
-        $requete = "SELECT ETAT, NOM, PRENOM, AGE, MAIL
+        $requete = "SELECT jeune.ID, ETAT, NOM, PRENOM, AGE, MAIL
                     FROM Contrat, jeune
                     WHERE Contrat.ID_JEUNE = jeune.ID
                     AND ID_RETRAITE = ?";

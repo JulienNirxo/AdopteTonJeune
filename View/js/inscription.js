@@ -71,7 +71,7 @@ function inscriptionUsers() {
         url: "functions.php",
         data:{inscription: inscription, email: email, mdp: mdp, mdp2: mdp2, nom: nom, prenom: prenom, age: age, ville: ville, adresse: adresse, type: type},
         success: function () {
-            document.location.href="connexion.php";
+            document.location.href="index.php";
         }, error: function () {}
     })
 }

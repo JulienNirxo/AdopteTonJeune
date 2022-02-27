@@ -411,4 +411,20 @@ class DAOcompte
         $req-> execute(array($_SESSION['idJeune']));
     }
 
+    public function addNote(){
+        $requete = "INSERT INTO avis(AVIS ,NOTE, ID_JEUNE) 
+                    VALUES(?,?,?);";
+        $req = $this->Bdd->prepare($requete);
+        $req->execute(array($_POST['avis'], $_POST['note'], $_POST['idjeune']));
+    }
+
+    public function getNote(){
+        $requete = "SELECT AVIS, NOTE
+                    FROM avis
+                    WHERE ID_JEUNE = ?";
+        $req = $this->Bdd->prepare($requete);
+        $req-> execute(array($_SESSION['idJeune']));
+        return $req->fetchAll();
+    }
+
 }

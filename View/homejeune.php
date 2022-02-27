@@ -47,7 +47,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4><a href="moncv.php">Accédez à mon cv</a></h4>
-                                    <h4>Accédez à mes avis</h4>
+                                    <h4><a href="avis.php">Accédez à mes avis</a></h4>
                                     <h4><a href="mesdemandes.php">Accédez à mes demandes</a></h4>
                                 </div>
                             </div>
