@@ -411,7 +411,6 @@ class DAOcompte
         $req-> execute(array($_SESSION['idJeune']));
     }
 
-    //z
     public function addNote(){
         $requete = "INSERT INTO avis(AVIS ,NOTE, ID_JEUNE) 
                     VALUES(?,?,?);";
